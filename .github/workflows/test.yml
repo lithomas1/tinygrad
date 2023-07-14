@@ -18,6 +18,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install dependencies
       run: pip install -e '.[linting,testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Repo line count
@@ -47,6 +48,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Test Docs
@@ -67,6 +69,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing,webgpu]' --extra-index-url https://download.pytorch.org/whl/cpu
     # - name: Set Env
@@ -91,6 +94,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e .
     - name: Compile EfficientNet to C
@@ -112,6 +116,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[llvm,testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Pytest
@@ -131,6 +136,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Set env
@@ -150,6 +156,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Pytest
@@ -177,6 +184,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Optimizer Test (OPT 2 and 3)
@@ -206,6 +214,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Test openpilot model compile and size
@@ -233,6 +242,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
+        cache: 'pip'
     - name: Install Dependencies
       run: pip install -e '.[metal,testing]'
     - name: Test LLaMA compile speed
