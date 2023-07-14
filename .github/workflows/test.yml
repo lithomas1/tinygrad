@@ -18,8 +18,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-linters-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install dependencies
       run: pip install -e '.[linting,testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Repo line count
@@ -49,8 +54,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-testcpu-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Test Docs
@@ -71,8 +81,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-testwebgpu-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing,webgpu]' --extra-index-url https://download.pytorch.org/whl/cpu
     # - name: Set Env
@@ -97,8 +112,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-imagenet-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e .
     - name: Compile EfficientNet to C
@@ -120,8 +140,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-llvm-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[llvm,testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Pytest
@@ -141,8 +166,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-clang-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Set env
@@ -162,8 +192,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-torch-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Pytest
@@ -191,8 +226,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-gpu-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Run Optimizer Test (OPT 2 and 3)
@@ -222,8 +262,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-opencl-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[testing]' --extra-index-url https://download.pytorch.org/whl/cpu
     - name: Test openpilot model compile and size
@@ -251,8 +296,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
-        cache: 'pip'
-        cache-dependency-path: 'setup.py'
+    # xref https://github.com/actions/setup-python/issues/505#issuecomment-1273013236
+    - uses: actions/cache@v3
+      id: cache-pip
+      with:
+        path: |
+          ~/.cache/pip
+        key: pip-metal-${{ runner.os }}-${{ runner.arch }}-py-${{ inputs.python-version }}-${{ hashFiles('setup.py') }}
     - name: Install Dependencies
       run: pip install -e '.[metal,testing]'
     - name: Test LLaMA compile speed
